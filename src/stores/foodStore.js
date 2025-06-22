@@ -84,6 +84,25 @@ export const useFoodStore = defineStore('food', () => {
       ? filtered[Math.floor(Math.random() * filtered.length)] 
       : null
   }
+
+  //搜索
+  const searchFoods = (filter,query) => {
+    let filtered = foods.value
+    if (filter.canteen) {
+      filtered = filtered.filter(f => f.canteen === filter.canteen)
+    }
+    if (filter.tags && filter.tags.length > 0) {
+      filtered = filtered.filter(f => 
+        filter.tags.every(tag => f.tags.includes(tag)))
+    }
+    if (query) {
+      filtered = filtered.filter(f => 
+        f.name.includes(query) ||
+        f.description.includes(query)
+      )
+    }
+    return filtered
+  }
   
   return { 
     foods, 
@@ -93,6 +112,7 @@ export const useFoodStore = defineStore('food', () => {
     voteFood,
     addComment,
     rankings,
-    getRandomFood
+    getRandomFood,
+    searchFoods
   }
 })

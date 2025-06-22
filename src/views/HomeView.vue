@@ -37,7 +37,7 @@ import { useFoodStore } from '@/stores/foodStore'
 import FoodCard from '@/components/FoodCard.vue'
 
 const foodStore = useFoodStore()
-const availableTags = ['早餐', '午餐', '晚餐', '小吃', '甜点', '健康', '辣', '素食']
+const availableTags = ['素食','荤菜','主食','小吃','甜点','饮料', '快餐', '地方特色','汤类','辣','清淡','健康']
 
 const newFood = ref({
   name: '',

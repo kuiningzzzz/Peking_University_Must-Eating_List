@@ -5,6 +5,7 @@
       <router-link to="/">首页</router-link>
       <router-link to="/ranking">排行榜</router-link>
       <router-link to="/random">随机抽取</router-link>
+      <router-link to="/search">搜索</router-link>
     </div>
   </nav>
 </template>
