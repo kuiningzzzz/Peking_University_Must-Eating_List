@@ -29,7 +29,10 @@
           </span>
         </div>
       </div>
-      <button @click="pickSearch" class="pick-button">搜索</button>
+
+      <div class="button-container">
+        <button @click="pickSearch" class="pick-button">搜索</button>
+      </div>
     </div>
     
     <div v-if="result" class="result">
@@ -78,18 +81,22 @@ const pickSearch = () => {
 
 <style scoped>
 .filters {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  margin: 20px 0;
+  display: flex;
+  justify-content: space-between; /* 左右分列 */
+  align-items: flex-start; /* 顶部对齐 */
+  flex-wrap: wrap; /* 允许换行 */
 }
 
 .filter-group {
-  margin-bottom: 15px;
+  flex: 1; /* 占据剩余空间 */
+  min-width: 300px; /* 防止挤压 */
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* 按钮右对齐 */
   padding: 20px;
-  border-radius: 8px;
-  max-width: 600px;
-  margin: 0 auto;
+  width: 100%; /* 移动端占满宽度 */
 }
 
 input, textarea {
@@ -156,4 +163,13 @@ select {
   color: #999;
   font-size: 1.2rem;
 }
+
+@media (min-width: 768px) {
+  .button-container {
+    width: auto; /* 取消宽度限制 */
+    padding-top: 0; /* 顶部对齐 */
+    align-self: center; /* 垂直居中 */
+  }
+}
+
 </style>
